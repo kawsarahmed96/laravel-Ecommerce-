@@ -1,0 +1,59 @@
+Product Management
+==================
+
+1.Category table
+---------------
+id 
+parent_id
+categoryName
+slug
+image
+status
+description
+deleted_at
+
+
+2.product table 
+----------------
+id
+category_id
+title
+slug 
+short_description
+price 
+sale_price 
+description
+additional_info
+status
+
+3.product gallery
+--------------
+id
+product_id
+image
+
+
+4.Size table 
+----------
+id 
+name
+slug 
+status
+
+
+5.Color table 
+-------------
+id 
+name
+slug 
+status
+
+
+6.Inventory table
+----------------
+id 
+product_id
+color_id
+size_id
+additional_price
+quantity

@@ -1,18 +1,19 @@
 <?php
 
-
-use Faker\Guesser\Name;
-use App\Models\Shipping;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackendController;
-use App\Http\Controllers\Backend\SizeController;
+use App\Http\Controllers\backend\BannerController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ColorController;
 use App\Http\Controllers\Backend\CouponController;
-use App\Http\Controllers\Backend\ProductController;
-use App\Http\Controllers\Role_PermissionController;
-use App\Http\Controllers\Backend\ShippingController;
-use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\InventoryController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\PromotionController;
+use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\ShippingController;
+use App\Http\Controllers\Backend\SizeController;
+use App\Http\Controllers\Role_PermissionController;
+use Faker\Guesser\Name;
+use Illuminate\Support\Facades\Route;
 
 //Dashboard Route
 
@@ -48,6 +49,14 @@ Route::middleware('auth')->prefix('dashboard')->name('backend.')->group(function
 
     Route::name('productmanagement.')->group(function () {
 
+        //Banner route
+
+        Route::resource('Banner', BannerController::class);
+
+        //Promotion route
+
+        Route::resource('Promotion',PromotionController::class);
+
         // product route
 
         Route::resource('Product', ProductController::class);
@@ -72,13 +81,13 @@ Route::middleware('auth')->prefix('dashboard')->name('backend.')->group(function
 
         Route::get('/color/list', [ColorController::class, 'colorDataList'])->name('color.data.list');
 
-
         // Coupon-----------------
         Route::resource('coupon', CouponController::class);
 
         // shipping __________________
 
-        Route::resource('Shipping',ShippingController::class);
+        Route::resource('Shipping', ShippingController::class);
+        Route::resource('Service', ServiceController::class);
 
     });
 

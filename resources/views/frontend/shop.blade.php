@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <aside class="sidebar_section p-0 mt-0">
+                    <aside class="sidebar_section mt-0 p-0">
                         <div class="sb_widget sb_category">
                             <h3 class="sb_widget_title">Categories</h3>
                             <ul class="sb_category_list ul_li_block">
@@ -63,11 +63,11 @@
                                             </select>
                                             <div class="nice-select" tabindex="0"><span class="current">HP</span>
                                                 <ul class="list">
-                                                    <li data-value="Select Your Option" data-display="Select Category"
-                                                        class="option">Select Your Option</li>
-                                                    <li data-value="1" class="option selected">HP</li>
-                                                    <li data-value="2" class="option">HP</li>
-                                                    <li data-value="3" class="option">HP</li>
+                                                    <li class="option" data-value="Select Your Option"
+                                                        data-display="Select Category">Select Your Option</li>
+                                                    <li class="option selected" data-value="1">HP</li>
+                                                    <li class="option" data-value="2">HP</li>
+                                                    <li class="option" data-value="3">HP</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -80,19 +80,19 @@
                                         <ul class="fs_brand_list ul_li_block">
                                             <li>
                                                 <div class="checkbox_item">
-                                                    <input id="apple_brand" type="checkbox" name="brand_checkbox">
+                                                    <input id="apple_brand" name="brand_checkbox" type="checkbox">
                                                     <label for="apple_brand">Apple <span>(19)</span></label>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="checkbox_item">
-                                                    <input id="asus_brand" type="checkbox" name="brand_checkbox">
+                                                    <input id="asus_brand" name="brand_checkbox" type="checkbox">
                                                     <label for="asus_brand">Asus <span>(1)</span></label>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="checkbox_item">
-                                                    <input id="bank_oluvsen_brand" type="checkbox" name="brand_checkbox">
+                                                    <input id="bank_oluvsen_brand" name="brand_checkbox" type="checkbox">
                                                     <label for="bank_oluvsen_brand">Bank &amp; Oluvsen
                                                         <span>(1)</span></label>
                                                 </div>
@@ -107,10 +107,10 @@
                                         <div class="price-range-area clearfix">
                                             <div class="price-text d-flex align-items-center">
                                                 <span>Range:</span>
-                                                <input type="text" id="amount" readonly="">
+                                                <input id="amount" type="text" readonly="">
                                             </div>
-                                            <div id="slider-range"
-                                                class="slider-range ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                                            <div class="slider-range ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+                                                id="slider-range">
                                                 <div class="ui-slider-range ui-widget-header ui-corner-all"
                                                     style="left: 0%; width: 40%;"></div><span
                                                     class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"
@@ -207,8 +207,8 @@
                                                 class="fal fa-bars"></i></button>
                                     </li>
                                     <li>
-                                        <button data-bs-toggle="tab" data-bs-target="#profile" type="button"
-                                            role="tab" aria-controls="profile" aria-selected="true" class="active">
+                                        <button class="active" data-bs-toggle="tab" data-bs-target="#profile"
+                                            type="button" role="tab" aria-controls="profile" aria-selected="true">
                                             <i class="fal fa-th-large"></i>
                                         </button>
                                     </li>
@@ -227,11 +227,11 @@
                                         <div class="nice-select" tabindex="0"><span class="current">Defaul
                                                 Sorting</span>
                                             <ul class="list">
-                                                <li data-value="Select Your Option" data-display="Defaul Sorting"
-                                                    class="option selected">Select Your Option</li>
-                                                <li data-value="1" class="option">Sorting By Name</li>
-                                                <li data-value="2" class="option">Sorting By Price</li>
-                                                <li data-value="3" class="option">Sorting By Size</li>
+                                                <li class="option selected" data-value="Select Your Option"
+                                                    data-display="Defaul Sorting">Select Your Option</li>
+                                                <li class="option" data-value="1">Sorting By Name</li>
+                                                <li class="option" data-value="2">Sorting By Price</li>
+                                                <li class="option" data-value="3">Sorting By Size</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -247,7 +247,7 @@
                     <hr>
 
                     <div class="tab-content">
-                        <div class="tab-pane fade " id="home" role="tabpanel">
+                        <div class="tab-pane fade" id="home" role="tabpanel">
                             <div class="shop-product-area shop-product-area-col">
                                 <div class="product-area shop-grid-product-area clearfix">
                                     @foreach ($products as $product)
@@ -255,8 +255,8 @@
                                             <div class="product-pic">
 
                                                 @if (request()->routeIs('frontend.shop.index'))
-                                                    <img src=" {{ asset($product->galleries->first()->image_path) }}"
-                                                        alt="{{ $product->title }}">
+                                                    {{-- <img src="{{ asset($product->galleries->first()->image_path) }}"
+                                                        alt="{{ $product->title }}"> --}}
                                                 @else
                                                     <img src=" {{ asset($product->image) }}" alt="{{ $product->title }}">
                                                 @endif
@@ -372,22 +372,20 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade  active show" id="profile" role="tabpanel">
+                        <div class="tab-pane fade active show" id="profile" role="tabpanel">
                             <div class="product_layout2_wrap">
                                 <div class="product-area-row">
                                     @foreach ($products as $product)
-                                        <div class="grid clearfix">
+                                        <div class="clearfix grid">
                                             <div class="product-pic">
 
                                                 @if (request()->routeIs('frontend.shop.index'))
-                                                    <img src=" {{ asset($product->galleries->first()->image_path) }}"
-                                                        alt="{{ $product->title }}">
+                                                    {{-- <img src=" {{ asset($product->galleries->first()->image_path) }}"
+                                                        alt="{{ $product->title }}"> --}}
                                                 @else
                                                     <img src=" {{ asset($product->image) }}"
                                                         alt="{{ $product->title }}">
                                                 @endif
-
-
 
                                                 <div class="actions">
                                                     <ul>
@@ -471,14 +469,11 @@
                                                 </span>
                                                 <div class="add-cart-area">
 
-                                              
                                                     <button class="add-to-cart">
-                                                        <a
-                                                            href="{{ route('frontend.shop.cart', $product->slug) }}">
+                                                        <a href="{{ route('frontend.shop.cart', $product->slug) }}">
                                                             Add to cart
                                                         </a>
                                                     </button>
-
 
                                                 </div>
                                             </div>
@@ -507,6 +502,5 @@
             </div>
         </div>
     </section>
-
 
 @endsection

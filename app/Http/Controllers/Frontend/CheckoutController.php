@@ -211,7 +211,7 @@ class CheckoutController extends Controller
         #Check order status in order tabel against the transaction id or order id.
         $order_details = DB::table('orders')
             ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'order_status', 'payment_status', 'total_price')->first();
+            ->select('id','transaction_id', 'order_status', 'payment_status', 'total_price')->first();
 
         if ($order_details->order_status == 'pending') {
             $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, );
@@ -228,8 +228,11 @@ class CheckoutController extends Controller
                         'payment_status' => 'paid',
                         'invoice_no'     => $invoice_no,
                     ]);
+                $order_details2 = DB::table('orders')
+                    ->where('transaction_id', $tran_id)
+                    ->select('id','transaction_id', 'order_status', 'payment_status', 'total_price')->first();
 
-                $pdf = Pdf::loadView('mail.invoice', ['data' => $order_details]);
+                $pdf = Pdf::loadView('mail.invoice', ['data' => $order_details2]);
 
                 $invoiceOutput = $pdf->output();
 
@@ -241,14 +244,12 @@ class CheckoutController extends Controller
                 return redirect()->route('frontend.index');
             }
         } else if ($order_details->order_status == 'processing' || $order_details->order_status == 'complete') {
-            /*
-            That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
-             */
+
             echo "<br >Transaction is successfully Completed";
             return redirect()->route('frontend.index');
 
         } else {
-            #That means something wrong happened. You can redirect customer to your product page.
+
             echo "Invalid Transaction";
         }
     }

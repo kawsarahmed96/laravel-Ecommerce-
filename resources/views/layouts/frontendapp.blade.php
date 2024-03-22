@@ -3,8 +3,6 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-
     <!-- Mirrored from products.wp-ts.com/stowaa/html/shop_grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 Sep 2022 06:54:04 GMT -->
 
     <head>
@@ -13,38 +11,37 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
         <title>@yield('title') - {{ config('app.name', 'Laravel') }}</title>
-        <link rel="shortcut icon" href="{{ asset('frontend/images/logo/favourite_icon_1.png') }}">
+        <link href="{{ asset('frontend/images/logo/favourite_icon_1.png') }}" rel="shortcut icon">
 
         <!-- fraimwork - css include -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+        <link type="text/css" href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
 
         <!-- icon font - css include -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/fontawesome.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/stroke-gap-icons.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/icofont.css') }}">
+        <link type="text/css" href="{{ asset('frontend/css/fontawesome.css') }}" rel="stylesheet">
+        <link type="text/css" href="{{ asset('frontend/css/stroke-gap-icons.css') }}" rel="stylesheet">
+        <link type="text/css" href="{{ asset('frontend/css/icofont.css') }}" rel="stylesheet">
 
         <!-- animation - css include -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/animate.css') }}">
+        <link type="text/css" href="{{ asset('frontend/css/animate.css') }}" rel="stylesheet">
 
         <!-- carousel - css include -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/slick.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/slick-theme.css') }}">
+        <link type="text/css" href="{{ asset('frontend/css/slick.css') }}" rel="stylesheet">
+        <link type="text/css" href="{{ asset('frontend/css/slick-theme.css') }}" rel="stylesheet">
 
         <!-- popup - css include -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/magnific-popup.css') }}">
+        <link type="text/css" href="{{ asset('frontend/css/magnific-popup.css') }}" rel="stylesheet">
 
         <!-- jquery-ui - css include -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/jquery-ui.css') }}">
+        <link type="text/css" href="{{ asset('frontend/css/jquery-ui.css') }}" rel="stylesheet">
 
         <!-- select option - css include -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/nice-select.css') }}">
+        <link type="text/css" href="{{ asset('frontend/css/nice-select.css') }}" rel="stylesheet">
 
         <!-- custom - css include -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/style.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/woocommerce-2.css') }}">
+        <link type="text/css" href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+        <link type="text/css" href="{{ asset('frontend/css/woocommerce-2.css') }}" rel="stylesheet">
 
     </head>
-
 
     <body>
 
@@ -53,7 +50,7 @@
 
             <!-- backtotop - start -->
             <div class="backtotop">
-                <a href="#" class="scroll">
+                <a class="scroll" href="#">
                     <i class="far fa-arrow-up"></i>
                 </a>
             </div>
@@ -62,7 +59,6 @@
             <!-- preloader - start -->
             <div id="preloader"></div>
             <!-- preloader - end -->
-
 
             <!-- header_section - start
         ================================================== -->
@@ -113,7 +109,7 @@
                         <div class="row align-items-center">
                             <div class="col col-lg-3 col-md-3 col-sm-12">
                                 <div class="brand_logo">
-                                    <a class="brand_link" href="{{route('frontend.index')}}">
+                                    <a class="brand_link" href="{{ route('frontend.index') }}">
                                         <img src="{{ asset('frontend/images/logo/logo_1x.png') }}"
                                             srcset="assets/images/logo/logo_2x.png 2x" alt>
                                     </a>
@@ -122,7 +118,7 @@
                             <div class="col col-lg-6 col-md-6 col-sm-12">
                                 <form action="#">
                                     <div class="advance_serach">
-                                        <div class="select_option mb-0 clearfix">
+                                        <div class="select_option clearfix mb-0">
                                             <select class="nice-select">
                                                 <option data-display="All Categories">Select A Category</option>
                                                 <option value="1">New Arrival Products</option>
@@ -135,26 +131,26 @@
                                             </select>
                                         </div>
                                         <div class="form_item">
-                                            <input type="search" name="search" placeholder="Search Prudcts...">
-                                            <button type="submit" class="search_btn"><i
+                                            <input name="search" type="search" placeholder="Search Prudcts...">
+                                            <button class="search_btn" type="submit"><i
                                                     class="far fa-search"></i></button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="col col-lg-3 col-md-3 col-sm-12">
-                                <button class="mobile_menu_btn2 navbar-toggler" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown"
+                                <button class="mobile_menu_btn2 navbar-toggler" data-bs-toggle="collapse"
+                                    data-bs-target="#main_menu_dropdown" type="button"
                                     aria-controls="main_menu_dropdown" aria-expanded="false"
                                     aria-label="Toggle navigation">
                                     <i class="fal fa-bars"></i>
                                 </button>
-                                <button type="button" class="cart_btn">
+                                <button class="cart_btn" type="button">
                                     <span class="cart_icon">
                                         <i class="icon icon-ShoppingCart"></i>
-                                        <small class="cart_counter">{{clientCartDetails()->count()}}</small>
+                                        <small class="cart_counter">{{ clientCartDetails()->count() }}</small>
                                     </span>
-                                    <span class="cart_amount">${{cartTotal()}}</span>
+                                    <span class="cart_amount">${{ cartTotal() }}</span>
                                 </button>
                             </div>
                         </div>
@@ -166,24 +162,26 @@
                         <div class="row align-items-center">
                             <div class="col col-md-3">
                                 <div class="allcategories_dropdown">
-                                    <button class="allcategories_btn" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#allcategories_collapse" aria-expanded="false"
+                                    <button class="allcategories_btn" data-bs-toggle="collapse"
+                                        data-bs-target="#allcategories_collapse" type="button" aria-expanded="false"
                                         aria-controls="allcategories_collapse">
-                                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="32px"
-                                            height="32px" viewBox="0 0 24 24" aria-labelledby="statsIconTitle"
-                                            stroke="#000" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" fill="none" color="#000">
+                                        <svg role="img" aria-labelledby="statsIconTitle"
+                                            xmlns="http://www.w3.org/2000/svg" width="32px" height="32px"
+                                            viewBox="0 0 24 24" stroke="#000" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" fill="none"
+                                            color="#000">
                                             <title id="statsIconTitle">Stats</title>
                                             <path d="M6 7L15 7M6 12L18 12M6 17L12 17" />
                                         </svg>
                                         Browse categories
                                     </button>
-                                    <div class="allcategories collapse {{ request()->routeIs('frontend.index') ? 'show' : '' }}"
+                                    <div class="allcategories {{ request()->routeIs('frontend.index') ? 'show' : '' }} collapse"
                                         id="allcategories_collapse">
                                         <div class="card card-body">
                                             <ul class="allcategories_list ul_li_block">
                                                 @foreach (categories() as $category)
-                                                    <li><a href={{route('frontend.shop.category',$category->slug)}}><i class="icon icon-Starship"></i>
+                                                    <li><a href={{ route('frontend.shop.category', $category->slug) }}><i
+                                                                class="icon icon-Starship"></i>
                                                             {{ $category->name }}</a></li>
                                                 @endforeach
                                         </div>
@@ -193,8 +191,8 @@
 
                             <div class="col col-md-6">
                                 <nav class="main_menu navbar navbar-expand-lg">
-                                    <div class="main_menu_inner collapse navbar-collapse" id="main_menu_dropdown">
-                                        <button type="button" class="offcanvas_close">
+                                    <div class="main_menu_inner navbar-collapse collapse" id="main_menu_dropdown">
+                                        <button class="offcanvas_close" type="button">
                                             <i class="fal fa-times"></i>
                                         </button>
                                         <ul class="main_menu_list ul_li">
@@ -207,8 +205,8 @@
 
                                             </li>
                                             <li class="dropdown">
-                                                <a class="nav-link" href="#" id="blog_submenu" role="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"> Blog </a>
+                                                <a class="nav-link" id="blog_submenu" data-bs-toggle="dropdown"
+                                                    href="#" role="button" aria-expanded="false"> Blog </a>
                                                 <ul class="submenu dropdown-menu" aria-labelledby="blog_submenu">
                                                     <li><a href="blog.html">Blog Standard</a></li>
                                                     <li><a href="blog-left-sidebar.html">Blog Left sidebar</a></li>
@@ -217,16 +215,16 @@
                                                 </ul>
                                             </li>
                                             <li class="dropdown">
-                                                <a class="nav-link" href="#" id="pages_submenu" role="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"> Pages </a>
+                                                <a class="nav-link" id="pages_submenu" data-bs-toggle="dropdown"
+                                                    href="#" role="button" aria-expanded="false"> Pages </a>
                                                 <ul class="submenu dropdown-menu" aria-labelledby="pages_submenu">
                                                     <li><a href="about.html">About Us</a></li>
                                                     <li><a href="team.html">Team</a></li>
                                                     <li><a href="account.html">My Account</a></li>
                                                     <li><a href="register.html">Register</a></li>
                                                     <li class="dropdown">
-                                                        <a href="#" id="cart_submenu" role="button"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">Shopping
+                                                        <a id="cart_submenu" data-bs-toggle="dropdown" href="#"
+                                                            role="button" aria-expanded="false">Shopping
                                                             Cart</a>
                                                         <ul class="submenu dropdown-menu"
                                                             aria-labelledby="cart_submenu">
@@ -319,51 +317,56 @@
 
                 <!-- sidebar cart - start
             ================================================== -->
-         @if (Auth::id())
-              <div class="sidebar-menu-wrapper">
-                    <div class="cart_sidebar">
-                        <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
+                @if (Auth::id())
+                    <div class="sidebar-menu-wrapper">
+                        <div class="cart_sidebar">
+                            <button class="close_btn" type="button"><i class="fal fa-times"></i></button>
 
-                        @foreach (clientCartDetails() as $cart)
-                             <ul class="cart_items_list ul_li_block mb_30 clearfix">
-                            <li>
-                                <div class="item_image">
-                                    <img src="{{ asset($cart->product->galleries->first()->image_path) }}"
-                                        alt="image_not_found">
-                                </div>
-                                <div class="item_content">
-                                    <h4 class="item_title">{{$cart->product->title}}</h4>
-                                    <span class="item_price">${{$cart->total_price }}</span>
-                                </div>
-                                <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-                            </li>
-                        
-                        </ul>
-                        @endforeach
-                       
+                            @foreach (clientCartDetails() as $cart)
+                                <ul class="cart_items_list ul_li_block mb_30 clearfix">
+                                    f
 
-                        <ul class="total_price ul_li_block mb_30 clearfix">
-                       
-                            <li>
-                                <span>Total:</span>
-                                <span>${{ @$cart ? $cart->sum('total_price'): ""}}</span>
-                            </li>
-                        </ul>
+                                    <li>
+                                        <div class="item_image">
+                                            <img src="{{ asset($cart->product->galleries->first()->image_path) }}"
+                                                alt="image_not_found">
+                                        </div>
+                                        <div class="item_content">
+                                            <h4 class="item_title">{{ $cart->product->title }}</h4>
+                                            <span class="item_price">${{ $cart->total_price }}</span>
+                                        </div>
+                                        
+                                           <a href="{{ route('frontend.product.cart.destroy', $cart->id) }}"><button type="button"
+                                            class="remove_btn"> <i class="fal fa-trash-alt"> </i></button> </a>
 
-                        <ul class="btns_group ul_li_block clearfix">
-                            <li><a class="btn btn_primary" href="{{route('frontend.product.cart.list')}}">View Cart</a></li>
-                            <li><a class="btn btn_secondary" href="{{route('frontend.product.order.checkOut')}}">Checkout</a></li>
-                        </ul>
+                                       
+                                    </li>
+
+                                </ul>
+                            @endforeach
+
+                            <ul class="total_price ul_li_block mb_30 clearfix">
+
+                                <li>
+                                    <span>Total:</span>
+                                    <span>${{ @$cart ? $cart->sum('total_price') : '' }}</span>
+                                </li>
+                            </ul>
+
+                            <ul class="btns_group ul_li_block clearfix">
+                                <li><a class="btn btn_primary" href="{{ route('frontend.product.cart.list') }}">View
+                                        Cart</a></li>
+                                <li><a class="btn btn_secondary"
+                                        href="{{ route('frontend.product.order.checkOut') }}">Checkout</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="cart_overlay"></div>
                     </div>
-
-                    <div class="cart_overlay"></div>
-                </div>
-         @endif
-               
+                @endif
 
                 <!-- sidebar cart - end
             ================================================== -->
-
 
                 <!-- product quick view modal - start
             ================================================== -->
@@ -373,7 +376,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalToggleLabel2">Product Quick View</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                <button class="btn-close" data-bs-dismiss="modal" type="button"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -456,12 +459,12 @@
                                                     <div class="quantity_wrap">
                                                         <form action="#">
                                                             <div class="quantity_input">
-                                                                <button type="button" class="input_number_decrement">
+                                                                <button class="input_number_decrement" type="button">
                                                                     <i class="fal fa-minus"></i>
                                                                 </button>
                                                                 <input class="input_number" type="text"
                                                                     value="1">
-                                                                <button type="button" class="input_number_increment">
+                                                                <button class="input_number_increment" type="button">
                                                                     <i class="fal fa-plus"></i>
                                                                 </button>
                                                             </div>
@@ -519,7 +522,6 @@
                 <!-- product quick view modal - end
             ================================================== -->
 
-
                 @yield('content')
 
                 <!-- newsletter_section - start
@@ -534,8 +536,8 @@
                             <div class="col col-lg-6">
                                 <form action="#!">
                                     <div class="newsletter_form">
-                                        <input type="email" name="email" placeholder="Enter your email address">
-                                        <button type="submit" class="btn btn_secondary">Submit</button>
+                                        <input name="email" type="email" placeholder="Enter your email address">
+                                        <button class="btn btn_secondary" type="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
@@ -676,11 +678,33 @@
 
         <!-- custom - main-js -->
         <script src="{{ asset('frontend/js/main.js') }}"></script>
-        
-                @yield('script')
+
+        @yield('script')
+
+        <script>
+            $(function() {
+                $('.sideBar_Delete').on('click', function(e) {
+                    e.preventDefault();
+                    var submitUrl = $(this);
+                    console.log(submitUrl)
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, delete it!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $(this).submit()
+                        }
+                    });
+
+                })
+            });
+        </script>
 
     </body>
-
-   
 
 </html>

@@ -1,7 +1,6 @@
 @extends('layouts.frontendapp')
 @section('title', 'Login/Registration')
 
-
 @section('content')
     <div class="breadcrumb_section">
         <div class="container">
@@ -38,11 +37,8 @@
                                     <div class="form_item">
                                         <label for="username_input"><i class="fas fa-user"></i></label>
 
-
-
-
-                                        <input id="email" class=" @error('email') is-invalid @enderror" type="email"
-                                            name="email" placeholder="User Email">
+                                        <input class="@error('email') is-invalid @enderror" id="email" name="email"
+                                            type="email" placeholder="User Email">
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -58,9 +54,8 @@
                                     <div class="form_item">
                                         <label for="password_input"><i class="fas fa-lock"></i></label>
 
-
-                                        <input id="password" class=" @error('password') is-invalid @enderror"
-                                            name="password" type="password" name="password" placeholder="Password">
+                                        <input class="@error('password') is-invalid @enderror" id="password"
+                                            name="password" name="password" type="password" placeholder="Password">
 
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -70,7 +65,7 @@
                                     </div>
                                     <div class="checkbox_item d-flex">
 
-                                        <input id="remember_checkbox" type="checkbox" name="remember" id="remember"
+                                        <input id="remember_checkbox" id="remember" name="remember" type="checkbox"
                                             {{ old('remember') ? 'checked' : '' }}>
                                         <label for="remember_checkbox">Remember Me</label>
 
@@ -81,7 +76,7 @@
                                 </div>
 
                                 <div class="form_item_wrap">
-                                    <button type="submit" class="btn btn_primary">Sign In</button>
+                                    <button class="btn btn_primary" type="submit">Sign In</button>
                                 </div>
                             </form>
                         </div>
@@ -93,16 +88,15 @@
                                     <h3 class="input_title">User Name*</h3>
                                     <div class="form_item">
                                         <label for="username_input2"><i class="fas fa-user"></i></label>
-                                        <input id="username_input2" type="text" name="name" placeholder="User Name">
+                                        <input id="username_input2" name="name" type="text" placeholder="User Name">
                                     </div>
                                 </div>
-
 
                                 <div class="form_item_wrap">
                                     <h3 class="input_title">Email*</h3>
                                     <div class="form_item">
                                         <label for="email_input"><i class="fas fa-envelope"></i></label>
-                                        <input id="email_input" type="email" name="email" placeholder="Email">
+                                        <input id="email_input" name="email" type="email" placeholder="Email">
                                     </div>
                                 </div>
 
@@ -110,21 +104,20 @@
                                     <h3 class="input_title">Password*</h3>
                                     <div class="form_item">
                                         <label for="password_input2"><i class="fas fa-lock"></i></label>
-                                        <input id="password_input2" type="password" name="password" placeholder="Password">
+                                        <input id="password_input2" name="password" type="password" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="form_item_wrap">
                                     <h3 class="input_title">Confirm Password*</h3>
                                     <div class="form_item">
                                         <label for="password_input2"><i class="fas fa-lock"></i></label>
-                                        <input id="password_input2" type="password" name="password_confirmation"
+                                        <input id="password_input2" name="password_confirmation" type="password"
                                             placeholder="Password">
                                     </div>
                                 </div>
 
-
                                 <div class="form_item_wrap">
-                                    <button type="submit" class="btn btn_secondary">Register</button>
+                                    <button class="btn btn_secondary" type="submit">Register</button>
                                 </div>
                             </form>
                         </div>

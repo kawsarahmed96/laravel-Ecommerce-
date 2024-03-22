@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
-use App\Models\OrderDetail;
+use App\Models\Product;
+use App\Models\Service;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
@@ -31,11 +32,9 @@ class AppServiceProvider extends ServiceProvider
 
         Paginator::useBootstrap();
 
-       $bestSellingPrduct =  OrderDetail::where('id',3)->get();
+  
 
-        View::share('bestSellingPrducts', $bestSellingPrduct);
-
-      
+        
 
     }
 }

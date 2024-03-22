@@ -234,6 +234,7 @@
     </head>
 
     <body>
+        {{$data->total_price}}
 
         <!-- Invoice area Starts -->
         <div class="invoice-area">
@@ -293,6 +294,8 @@
                         </tbody>
                     </table>
                 </div>
+
+                
 
                 <div class="item-description">
                     <div class="table-responsive">

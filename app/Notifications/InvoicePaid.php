@@ -46,7 +46,7 @@ class InvoicePaid extends Notification
             ->line('Thank you for using our application!')
             ->line('order Price'.$this->order->total_price)
             ->attachData($this->invoiceOutput, $this->invoiceName, [
-                'mime' =>'aplication/pdf',
+                'mime' =>'aplication/pdf'
             ]);
     }
 
